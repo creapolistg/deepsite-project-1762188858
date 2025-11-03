@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brille jusqu'à Noël  ✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #0a1922;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(214, 179, 104, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(214, 179, 104, 0.1) 0%, transparent 20%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zM9 63c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm51 13c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zM31 63c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2zm30 16c1.104 0 2-.896 2-2s-.896-2-2-2-2 .896-2 2 .896 2 2 2z' fill='%23d6b368' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: #f8f4e9;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .title {
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 0 10px rgba(214, 179, 104, 0.5);
+        }
+        
+        .subtitle {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .door {
+            background: linear-gradient(145deg, #0f2a37, #0a1922);
+            border: 1px solid rgba(214, 179, 104, 0.3);
+            box-shadow: 
+                0 0 15px rgba(214, 179, 104, 0.2),
+                inset 0 0 10px rgba(214, 179, 104, 0.1);
+            transition: all 0.3s ease;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+        
+        .door:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 5px 20px rgba(214, 179, 104, 0.4),
+                inset 0 0 15px rgba(214, 179, 104, 0.2);
+        }
+        
+        .door-number {
+            color: #d6b368;
+            text-shadow: 0 0 5px rgba(214, 179, 104, 0.5);
+        }
+        
+        .door-content {
+            display: none;
+            background: linear-gradient(145deg, #0f2a37, #0a1922);
+            border: 1px solid rgba(214, 179, 104, 0.5);
+            box-shadow: 0 0 30px rgba(214, 179, 104, 0.3);
+            transform: rotateY(180deg);
+        }
+        
+        .door.open {
+            transform: rotateY(180deg);
+        }
+        
+        .door.open .door-content {
+            display: flex;
+        }
+        
+        .door.open .door-front {
+            display: none;
+        }
+        
+        .twinkle {
+            animation: twinkle 5s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        .flicker {
+            animation: flicker 3s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        .snowflake {
+            position: absolute;
+            color: #fff;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+        
+        .verse {
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+        }
+        
+        .close-btn {
+            color: #d6b368;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden">
+    <!-- Snowflakes -->
+    <div id="snowflakes"></div>
+    
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+        <!-- Header -->
+        <header class="text-center mb-12 relative z-10">
+            <div class="twinkle mb-2">
+                <i class="fas fa-star text-yellow-300 text-xl"></i>
+                <i class="fas fa-star text-yellow-300 text-lg mx-2"></i>
+                <i class="fas fa-star text-yellow-300 text-xl"></i>
+            </div>
+            <h1 class="title text-4xl md:text-5xl font-bold text-yellow-300 mb-2">Brille jusqu'à Noël  ✨</h1>
+            <p class="subtitle text-2xl md:text-3xl text-yellow-200 flicker">24 jours pour allumer la lumière en toi</p>
+            <div class="twinkle mt-4">
+                <i class="fas fa-candle-holder text-yellow-300 text-xl"></i>
+            </div>
+        </header>
+        
+        <!-- Advent Calendar Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 relative z-10">
+            <!-- Generate 24 doors -->
+            <script>
+                const verses = [
+                    "Je suis la lumière du monde. Celui qui me suit ne marchera pas dans les ténèbres, mais il aura la lumière de la vie. - Jean 8:12",
+                    "Car Dieu a tant aimé le monde qu'il a donné son Fils unique, afin que quiconque croit en lui ne périsse point, mais qu'il ait la vie éternelle. - Jean 3:16",
+                    "Le peuple qui marchait dans les ténèbres a vu une grande lumière ; sur ceux qui habitaient le pays de l'ombre de la mort, une lumière a resplendi. - Ésaïe 9:1",
+                    "Jésus lui dit: Je suis le chemin, la vérité, et la vie. Nul ne vient au Père que par moi. - Jean 14:6",
+                    "Voici, je me tiens à la porte, et je frappe. Si quelqu'un entend ma voix et ouvre la porte, j'entrerai chez lui, je souperai avec lui, et lui avec moi. - Apocalypse 3:20",
+                    "Car un enfant nous est né, un fils nous est donné, et la domination reposera sur son épaule; on l'appellera Admirable, Conseiller, Dieu puissant, Père éternel, Prince de la paix. - Ésaïe 9:5",
+                    "Ne vous inquiétez de rien; mais en toute chose faites connaître vos besoins à Dieu par des prières et des supplications, avec des actions de grâces. - Philippiens 4:6",
+                    "Cherchez premièrement le royaume et la justice de Dieu; et toutes ces choses vous seront données par-dessus. - Matthieu 6:33",
+                    "Je vous laisse la paix, je vous donne ma paix. Je ne vous donne pas comme le monde donne. Que votre cœur ne se trouble point, et ne s'alarme point. - Jean 14:27",
+                    "L'Éternel est mon berger: je ne manquerai de rien. - Psaume 23:1",
+                    "Aimez-vous les uns les autres; comme je vous ai aimés, vous aussi, aimez-vous les uns les autres. - Jean 13:34",
+                    "Car je connais les projets que j'ai formés sur vous, dit l'Éternel, projets de paix et non de malheur, afin de vous donner un avenir et de l'espérance. - Jérémie 29:11",
+                    "Mais ceux qui se confient en l'Éternel renouvellent leur force. Ils prennent le vol comme les aigles; ils courent, et ne se lassent point, ils marchent, et ne se fatiguent point. - Ésaïe 40:31",
+                    "Ne crains point, car je suis avec toi; ne promène pas des regards inquiets, car je suis ton Dieu; je te fortifie, je viens à ton secours, je te soutiens de ma droite triomphante. - Ésaïe 41:10",
+                    "Recommande ton sort à l'Éternel, mets en lui ta confiance, et il agira. - Psaume 37:5",
+                    "L'Éternel est près de ceux qui ont le cœur brisé, et il sauve ceux qui ont l'esprit dans l'abattement. - Psaume 34:18",
+                    "Car Dieu ne nous a pas donné un esprit de timidité, mais de puissance, d'amour et de sagesse. - 2 Timothée 1:7",
+                    "Soyez toujours joyeux. Priez sans cesse. Rendez grâces en toutes choses, car c'est à votre égard la volonté de Dieu en Jésus-Christ. - 1 Thessaloniciens 5:16-18",
+                    "Que la parole de Christ habite parmi vous abondamment; instruisez-vous et exhortez-vous les uns les autres en toute sagesse, par des psaumes, par des hymnes, par des cantiques spirituels. - Colossiens 3:16",
+                    "Mais le fruit de l'Esprit, c'est l'amour, la joie, la paix, la patience, la bonté, la bénignité, la fidélité, la douceur, la tempérance. - Galates 5:22",
+                    "Car nous marchons par la foi et non par la vue. - 2 Corinthiens 5:7",
+                    "Heureux ceux qui procurent la paix, car ils seront appelés fils de Dieu! - Matthieu 5:9",
+                    "Voici, la vierge sera enceinte, elle enfantera un fils, et on lui donnera le nom d'Emmanuel, ce qui signifie Dieu avec nous. - Matthieu 1:23",
+                    "Et l'ange leur dit: Ne craignez point; car je vous annonce une bonne nouvelle, qui sera pour tout le peuple le sujet d'une grande joie: c'est qu'aujourd'hui, dans la ville de David, il vous est né un Sauveur, qui est le Christ, le Seigneur. - Luc 2:10-11"
+                ];
+
+                const quotes = [
+                    "La plus grande gloire n'est pas de ne jamais tomber, mais de se relever à chaque chute. - Nelson Mandela",
+                    "La seule façon de faire du bon travail est d'aimer ce que vous faites. - Steve Jobs",
+                    "La vie, c'est comme une bicyclette, il faut avancer pour ne pas perdre l'équilibre. - Albert Einstein",
+                    "Le bonheur n'est pas quelque chose de prêt à l'emploi. Il vient de vos propres actions. - Dalaï Lama",
+                    "La meilleure façon de prédire l'avenir est de le créer. - Peter Drucker",
+                    "La gratitude transforme ce que nous avons en assez. - Melody Beattie",
+                    "La paix commence par un sourire. - Mère Teresa",
+                    "La seule limite à notre réalisation de demain sera nos doutes d'aujourd'hui. - Franklin D. Roosevelt",
+                    "La vie est un mystère qu'il faut vivre, et non un problème à résoudre. - Gandhi",
+                    "Le courage n'est pas l'absence de peur, mais la capacité de vaincre ce qui fait peur. - Nelson Mandela",
+                    "La simplicité est la sophistication suprême. - Léonard de Vinci",
+                    "La beauté commence au moment où vous décidez d'être vous-même. - Coco Chanel",
+                    "La seule véritable erreur est celle dont on ne tire aucun enseignement. - John Powell",
+                    "La patience est amère, mais son fruit est doux. - Jean-Jacques Rousseau",
+                    "La joie est en tout; il faut savoir l'extraire. - Confucius",
+                    "La lumière brille dans les ténèbres, et les ténèbres ne l'ont point reçue. - Jean 1:5",
+                    "La foi est la force par laquelle un monde brisé émergera dans la lumière. - Helen Keller",
+                    "La gentillesse est une langue que les sourds peuvent entendre et que les aveugles peuvent voir. - Mark Twain",
+                    "La vie est faite de petits bonheurs qui se transforment en grands souvenirs. - Anonyme",
+                    "La sagesse commence dans l'émerveillement. - Socrate",
+                    "La meilleure préparation pour demain est de faire de son mieux aujourd'hui. - H. Jackson Brown Jr.",
+                    "La gratitude est la mémoire du cœur. - Jean-Baptiste Massieu",
+                    "La lumière intérieure est plus brillante que le soleil. - Proverbe persan",
+                    "Noël n'est pas une date, c'est un état d'esprit. - Mary Ellen Chase"
+                ];
+
+                const images = [
+                    "🎄", "🌟", "🕯️", "📖", "✨", "🕊️", "❤️", "🙏", "🎁", "🦌", "❄️", "🔔",
+                    "🕎", "👼", "🌠", "🪔", "🌲", "🕊️", "📜", "🪶", "🌌", "🕯️", "🌟", "👑"
+                ];
+
+                function getRandomElement(arr) {
+                    return arr[Math.floor(Math.random() * arr.length)];
+                }
+
+                function createDoor(day) {
+                    const isPast = new Date().getDate() >= day && new Date().getMonth() === 11;
+                    const door = document.createElement('div');
+                    door.className = `door
+</body>
+</html>
